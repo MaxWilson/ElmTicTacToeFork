@@ -6596,6 +6596,16 @@ var $author$project$Main$viewHeader = A2(
 					$elm$html$Html$text('Elmy Tic Tac Toe')
 				]))
 		]));
+var $elm$html$Html$audio = _VirtualDom_node('audio');
+var $elm$json$Json$Encode$bool = _Json_wrap;
+var $elm$html$Html$Attributes$boolProperty = F2(
+	function (key, bool) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$bool(bool));
+	});
+var $elm$html$Html$Attributes$autoplay = $elm$html$Html$Attributes$boolProperty('autoplay');
 var $author$project$Main$mapModelPlayerTypeToView = function (playerType) {
 	switch (playerType.$) {
 		case 'Cross':
@@ -6619,7 +6629,15 @@ var $author$project$Main$mapModelGameStatusToViewName = function (gameStatus) {
 			return 'Play in Progress';
 	}
 };
+var $elm$html$Html$source = _VirtualDom_node('source');
 var $elm$html$Html$span = _VirtualDom_node('span');
+var $elm$html$Html$Attributes$src = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'src',
+		_VirtualDom_noJavaScriptOrHtmlUri(url));
+};
+var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
 var $author$project$Main$viewInfo = function (model) {
 	return A2(
 		$elm$html$Html$div,
@@ -6645,6 +6663,37 @@ var $author$project$Main$viewInfo = function (model) {
 							[
 								$elm$html$Html$text(
 								$author$project$Main$mapModelGameStatusToViewName(model.gameState.gameStatus))
+							])),
+						A2(
+						$elm$html$Html$div,
+						_List_Nil,
+						_List_fromArray(
+							[
+								function () {
+								var _v0 = model.gameState.gameStatus;
+								if (_v0.$ === 'Won') {
+									var player = _v0.a;
+									return A2(
+										$elm$html$Html$audio,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$autoplay(true),
+												$elm$html$Html$Attributes$type_('audio/mpeg')
+											]),
+										_List_fromArray(
+											[
+												A2(
+												$elm$html$Html$source,
+												_List_fromArray(
+													[
+														$elm$html$Html$Attributes$src('cheer.mp3')
+													]),
+												_List_Nil)
+											]));
+								} else {
+									return A2($elm$html$Html$div, _List_Nil, _List_Nil);
+								}
+							}()
 							]))
 					])),
 				A2(

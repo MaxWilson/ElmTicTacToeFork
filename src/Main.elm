@@ -3,8 +3,8 @@ module Main exposing (..)
 import Browser exposing (sandbox)
 import Array exposing (Array)
 import Dict exposing (..)
-import Html exposing (Html, button, div, h1, span, text)
-import Html.Attributes exposing (class, id)
+import Html exposing (Html, button, div, h1, span, text, img, audio, source)
+import Html.Attributes exposing (class, id, autoplay, src, type_)
 import Html.Events exposing (onClick)
 
 main : Program () Model Msg
@@ -442,6 +442,11 @@ viewInfo model =
         [ div []
             [ text "Game Status: "
             , span [ class "game-status" ] [ text (mapModelGameStatusToViewName model.gameState.gameStatus) ]
+            , div[] [
+              case model.gameState.gameStatus of 
+                Won player -> audio [autoplay True, type_ "audio/mpeg"][source [src "cheer.mp3"][]]
+                _ -> div[][]
+              ]
             ]
         , div []
             [ text "Next Turn: "
