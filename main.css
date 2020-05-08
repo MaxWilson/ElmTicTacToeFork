@@ -19,8 +19,8 @@ body {
 
 .place-holder {
   font-weight: 300;
-  height: 125px;
-  width: 125px;
+  height: 150px;
+  width: 150px;
   border: solid 1px #abb0b5;
   font-size: 30px;
   text-align: center;
@@ -29,6 +29,14 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+.place-holder img {
+  margin-left: auto;
+  margin-right: auto;
+  height: 120px;
+  width: 90px;
+}
+
 
 .information-board {
   display: flex;
