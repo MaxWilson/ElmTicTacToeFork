@@ -6696,24 +6696,34 @@ var $author$project$Main$viewInfo = function (model) {
 							}()
 							]))
 					])),
-				A2(
-				$elm$html$Html$div,
-				_List_Nil,
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Next Turn: '),
-						A2(
-						$elm$html$Html$span,
-						_List_fromArray(
-							[
-								$elm$html$Html$Attributes$class('next-turn')
-							]),
-						_List_fromArray(
-							[
-								$elm$html$Html$text(
-								$author$project$Main$mapModelPlayerTypeToView(model.gameState.nextTurn))
-							]))
-					]))
+				function () {
+				var _v1 = model.gameState.gameStatus;
+				switch (_v1.$) {
+					case 'Drawn':
+						return A2($elm$html$Html$div, _List_Nil, _List_Nil);
+					case 'Won':
+						return A2($elm$html$Html$div, _List_Nil, _List_Nil);
+					default:
+						return A2(
+							$elm$html$Html$div,
+							_List_Nil,
+							_List_fromArray(
+								[
+									$elm$html$Html$text('Next Turn: '),
+									A2(
+									$elm$html$Html$span,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('next-turn')
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text(
+											$author$project$Main$mapModelPlayerTypeToView(model.gameState.nextTurn))
+										]))
+								]));
+				}
+			}()
 			]));
 };
 var $author$project$Main$Mark = function (a) {

@@ -447,7 +447,10 @@ viewInfo model =
                 _ -> div[][]
               ]
             ]
-        , div []
+        , case model.gameState.gameStatus of 
+          Drawn -> div[][]
+          Won _ -> div[][]
+          _ -> div []
             [ text "Next Turn: "
             , span [ class "next-turn" ] [ text (mapModelPlayerTypeToView model.gameState.nextTurn) ]
             ]
