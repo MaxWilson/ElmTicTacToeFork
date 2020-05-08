@@ -6719,13 +6719,42 @@ var $author$project$Main$viewInfo = function (model) {
 var $author$project$Main$Mark = function (a) {
 	return {$: 'Mark', a: a};
 };
+var $elm$html$Html$Attributes$height = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'height',
+		$elm$core$String$fromInt(n));
+};
 var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
+var $elm$html$Html$img = _VirtualDom_node('img');
 var $elm$core$Tuple$second = function (_v0) {
 	var y = _v0.b;
 	return y;
 };
+var $elm$html$Html$Attributes$width = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'width',
+		$elm$core$String$fromInt(n));
+};
 var $author$project$Main$placeHolder = function (box) {
-	var marker = _Utils_eq(box.mark, $author$project$Main$Cross) ? 'Zara' : (_Utils_eq(box.mark, $author$project$Main$Circle) ? 'Raquel' : '');
+	var marker = _Utils_eq(box.mark, $author$project$Main$Cross) ? A2(
+		$elm$html$Html$img,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$src('Zara.jpg'),
+				$elm$html$Html$Attributes$height(120),
+				$elm$html$Html$Attributes$width(120)
+			]),
+		_List_Nil) : (_Utils_eq(box.mark, $author$project$Main$Circle) ? A2(
+		$elm$html$Html$img,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$src('Raquel.jpg'),
+				$elm$html$Html$Attributes$height(120),
+				$elm$html$Html$Attributes$width(120)
+			]),
+		_List_Nil) : $elm$html$Html$text(''));
 	return A2(
 		$elm$html$Html$div,
 		_List_fromArray(
@@ -6737,9 +6766,7 @@ var $author$project$Main$placeHolder = function (box) {
 				$author$project$Main$Mark(box.pos))
 			]),
 		_List_fromArray(
-			[
-				$elm$html$Html$text(marker)
-			]));
+			[marker]));
 };
 var $author$project$Main$viewRow = F2(
 	function (rowNum, board) {

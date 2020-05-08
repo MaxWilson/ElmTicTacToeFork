@@ -4,7 +4,7 @@ import Browser exposing (sandbox)
 import Array exposing (Array)
 import Dict exposing (..)
 import Html exposing (Html, button, div, h1, span, text, img, audio, source)
-import Html.Attributes exposing (class, id, autoplay, src, type_)
+import Html.Attributes exposing (class, id, autoplay, src, type_, height, width)
 import Html.Events exposing (onClick)
 
 main : Program () Model Msg
@@ -403,21 +403,20 @@ placeHolder : Box -> Html Msg
 placeHolder box =
     let
         marker =
-            if box.mark == Cross then
-                "Zara"
+            if box.mark == Cross then              
+                img [src "Zara.jpg", height 120, width 120][]
 
             else if box.mark == Circle then
-                "Raquel"
-
+                img [src "Raquel.jpg", height 120, width 120][]
             else
-                ""
+                text ""
     in
     div
         [ class "place-holder"
         , id (String.fromInt (Tuple.first box.pos) ++ "-" ++ String.fromInt (Tuple.second box.pos))
         , onClick (Mark box.pos)
         ]
-        [ text marker ]
+        [ marker ]
 
 
 viewRow : Int -> Board -> Html Msg
